@@ -1,31 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Suman Kumar | Links</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suman Kumar | Full Stack Developer</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Dark Mode based on class and custom colors -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#4F46E5', // Indigo-600 for primary actions
+                        'primary-dark': '#818CF8', // Indigo-400 for dark mode
+                        'surface': '#FFFFFF', // Light surface
+                        'surface-dark': '#1F2937', // Darker surface
+                        'background': '#F9FAFB', // Light background
+                        'background-dark': '#111827', // Very dark background
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Apply smooth transitions for dark mode switching */
+        body {
+            transition: background-color 0.3s ease;
+        }
+        .link-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
 
-  <body>
-    <div class="container">
-      <img src="https://via.placeholder.com/120" alt="Profile" class="avatar" />
+<body class="font-sans min-h-screen flex flex-col items-center justify-center p-4 bg-background dark:bg-background-dark text-gray-800 dark:text-gray-100">
 
-      <h1>@sumankumar</h1>
-      <p class="bio">Full Stack Developer | Blogger | Tech Explorer</p>
+    <!-- Main Container -->
+    <div class="w-full max-w-lg mx-auto bg-surface dark:bg-surface-dark rounded-xl shadow-2xl p-6 sm:p-8 space-y-8">
 
-      <div class="links">
-        <a href="https://blog.skverma.com" target="_blank">🌐 My Blog</a>
-        <a href="https://dev.skverma.com" target="_blank">🌐 Portfolio</a>
-        <a href="https://github.com/meskv" target="_blank">💻 GitHub</a>
-        <a href="https://linkedin.com/in/me-skv" target="_blank">🔗 LinkedIn</a>
-      </div>
+        <!-- Header and Profile Info -->
+        <header class="text-center">
+            <!-- Profile Image -->
+            <img src="https://placehold.co/120x120/4F46E5/FFFFFF?text=SKV"
+                 alt="Profile"
+                 class="w-32 h-32 rounded-full mx-auto ring-4 ring-primary dark:ring-primary-dark object-cover mb-4 shadow-lg"
+                 onerror="this.onerror=null; this.src='https://placehold.co/120x120/4F46E5/FFFFFF?text=SK';"
+            >
 
-      <footer>
-        <p>© 2025 Suman Kumar | Built with ❤️</p>
-      </footer>
+            <h1 class="text-3xl font-extrabold tracking-tight">@skv</h1>
+            <p class="text-lg mt-1 text-gray-500 dark:text-gray-400">Full Stack Developer | Tech Explorer</p>
+        </header>
+
+        <!-- Theme Toggle and Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="flex-1 flex items-center justify-center space-x-2 py-3 px-6 rounded-lg font-semibold bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-100 transition duration-150 shadow-md">
+                <!-- Icon will be set by JS -->
+                <span id="theme-icon">🌙</span>
+                <span id="theme-text">Dark Mode</span>
+            </button>
+
+            <!-- Copy Contact Button (The "Professional Functionality") -->
+            <button id="copy-contact-btn" data-contact="contact@skverma.com" class="flex-1 flex items-center justify-center space-x-2 py-3 px-6 rounded-lg font-semibold bg-primary hover:bg-indigo-700 text-white shadow-lg transition duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+                <span>Copy Contact</span>
+            </button>
+        </div>
+
+        <!-- Links Section -->
+        <div class="space-y-4">
+            <!-- Link 1: Blog -->
+            <a href="https://blog.skverma.com" target="_blank" class="link-card flex items-center justify-between w-full p-4 bg-gray-100 dark:bg-gray-700 hover:bg-primary/20 dark:hover:bg-primary-dark/20 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                <span class="text-lg font-medium flex items-center space-x-3">
+                    🌐 My Blog
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary dark:text-primary-dark" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                </svg>
+            </a>
+
+            <!-- Link 2: Portfolio -->
+            <a href="https://dev.skverma.com" target="_blank" class="link-card flex items-center justify-between w-full p-4 bg-gray-100 dark:bg-gray-700 hover:bg-primary/20 dark:hover:bg-primary-dark/20 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                <span class="text-lg font-medium flex items-center space-x-3">
+                    💻 Portfolio
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary dark:text-primary-dark" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l.493-.185.73-2.817a1 1 0 01.996-.788h1.378a1 1 0 00.957-.795l.409-1.92a1 1 0 01.979-.817h1.992a1 1 0 01.979.817l.41 1.921a1 1 0 00.956.795h1.378a1 1 0 01.996.788l.73 2.817.493.185a1 1 0 001.168-1.409l-7-14z" />
+                </svg>
+            </a>
+
+            <!-- Link 3: GitHub -->
+            <a href="https://github.com/meskv" target="_blank" class="link-card flex items-center justify-between w-full p-4 bg-gray-100 dark:bg-gray-700 hover:bg-primary/20 dark:hover:bg-primary-dark/20 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                <span class="text-lg font-medium flex items-center space-x-3">
+                    🔗 GitHub
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary dark:text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7a5.4 5.4 0 00-1.5-3.75 5.07 5.07 0 00-.14-3.59s-1.25-.37-4.18 1.48a12.3 12.3 0 00-6.2 0c-2.93-1.85-4.18-1.48-4.18-1.48A5.07 5.07 0 005 1.73a5.4 5.4 0 00-1.5 3.75c0 5.44 3.3 6.63 6.44 7A3.37 3.37 0 007 18.13V22" />
+                </svg>
+            </a>
+
+            <!-- Link 4: LinkedIn -->
+            <a href="https://linkedin.com/in/me-skv" target="_blank" class="link-card flex items-center justify-between w-full p-4 bg-gray-100 dark:bg-gray-700 hover:bg-primary/20 dark:hover:bg-primary-dark/20 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                <span class="text-lg font-medium flex items-center space-x-3">
+                    💼 LinkedIn
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary dark:text-primary-dark" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.32 14.896l2.13-2.13a1 1 0 00.354-.707V4a2 2 0 00-2-2h-3.414a1 1 0 00-.707.293l-2.13 2.13a1 1 0 00-.293.707v7.586a1 1 0 00.293.707l2.13 2.13a1 1 0 00.707.293H14a2 2 0 002-2v-2.586a1 1 0 00-.293-.707zM10 18a2 2 0 01-2-2v-4a2 2 0 012-2h4a2 2 0 012 2v4a2 2 0 01-2 2h-4zM6 9a1 1 0 00-1 1v4a1 1 0 102 0v-4a1 1 0 00-1-1zM6 4a1 1 0 00-1 1v2a1 1 0 102 0V5a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Notification Box (for copy success) -->
+        <div id="notification-box" class="fixed bottom-5 right-5 p-4 bg-green-500 text-white rounded-lg shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none">
+            Text copied to clipboard!
+        </div>
+
+        <!-- Footer -->
+        <footer class="pt-4 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+            <p>© 2025 Suman Kumar | Built with ❤️</p>
+        </footer>
+
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    <script>
+        // Check for theme preference on load
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // --- Theme Toggle Logic ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        function updateThemeElements(isDark) {
+            if (isDark) {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+            }
+        }
+
+        // Initialize button text and icon
+        updateThemeElements(document.documentElement.classList.contains('dark'));
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.theme = isDark ? 'dark' : 'light';
+            updateThemeElements(isDark);
+        });
+
+        // --- Copy Contact Logic ---
+        const copyBtn = document.getElementById('copy-contact-btn');
+        const notificationBox = document.getElementById('notification-box');
+        const contactEmail = copyBtn.getAttribute('data-contact');
+
+        copyBtn.addEventListener('click', () => {
+            // Function to copy text to clipboard (using deprecated execCommand for broader iframe support)
+            const el = document.createElement('textarea');
+            el.value = contactEmail;
+            document.body.appendChild(el);
+            el.select();
+            
+            let success = false;
+            try {
+                success = document.execCommand('copy');
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+            
+            document.body.removeChild(el);
+
+            if (success) {
+                // Show notification
+                notificationBox.classList.remove('opacity-0', 'pointer-events-none');
+                notificationBox.classList.add('opacity-100');
+
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    notificationBox.classList.remove('opacity-100');
+                    notificationBox.classList.add('opacity-0', 'pointer-events-none');
+                }, 3000);
+            } else {
+                // If copy fails, maybe offer a fallback or console log
+                console.warn('Could not copy email, please copy manually: ' + contactEmail);
+            }
+        });
+    </script>
+</body>
 </html>
